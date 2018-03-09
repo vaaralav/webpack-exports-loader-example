@@ -1,4 +1,5 @@
 import path from 'path';
+import webpack from 'webpack';
 
 export default {
   entry: './index.js',
@@ -27,5 +28,10 @@ export default {
     alias: {
       $legacy: path.resolve(__dirname, 'legacy')
     }
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      d3: 'd3'
+    })
+  ]
 };
